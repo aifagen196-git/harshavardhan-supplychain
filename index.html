@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harshavardhan K — Supply Chain Analyst</title>
+<meta name="description" content="Portfolio of Harshavardhan K, Supply Chain Analyst specializing in planning, procurement, inventory, and logistics analytics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12161c;
+    --ink-2:#181d25;
+    --paper:#f3ede0;
+    --paper-dim:#c9c2b2;
+    --amber:#e3a008;
+    --amber-soft:#8a6a1c;
+    --teal:#3f7d7a;
+    --line:#2a313c;
+    --line-light:#d8d2c1;
+    --text:#e9e4d8;
+    --text-dim:#9aa1ac;
+    --radius:2px;
+    --maxw:1080px;
+  }
+
+  [data-theme="light"]{
+    --ink:#f3ede0;
+    --ink-2:#eae3d3;
+    --paper:#12161c;
+    --paper-dim:#3a4048;
+    --amber:#a86c00;
+    --amber-soft:#c98d10;
+    --teal:#2c6360;
+    --line:#d8d2c1;
+    --line-light:#2a313c;
+    --text:#1c2128;
+    --text-dim:#5b6270;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  .progress-bar{
+    position:fixed; top:0; left:0; height:2px; width:0%;
+    background:var(--amber); z-index:100; transition:width .08s linear;
+  }
+
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Public Sans', -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    transition:background .3s ease, color .3s ease;
+  }
+  ::selection{ background:var(--amber); color:#12161c; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+    .reveal{ opacity:1 !important; transform:none !important; }
+  }
+
+  /* ---------- Entrance + scroll reveal ---------- */
+  @keyframes riseIn{
+    from{ opacity:0; transform:translateY(16px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+  .hero-anim{ opacity:0; animation:riseIn .8s cubic-bezier(.16,.8,.28,1) forwards; }
+  .hero-anim.d1{ animation-delay:.05s; }
+  .hero-anim.d2{ animation-delay:.18s; }
+  .hero-anim.d3{ animation-delay:.32s; }
+  .hero-anim.d4{ animation-delay:.44s; }
+  .hero-anim.d5{ animation-delay:.56s; }
+
+  .reveal{
+    opacity:0; transform:translateY(22px);
+    transition:opacity .7s cubic-bezier(.16,.8,.28,1), transform .7s cubic-bezier(.16,.8,.28,1);
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  a{ color:inherit; }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:600; margin:0; }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    background:color-mix(in srgb, var(--ink) 88%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brandmark{ display:flex; align-items:baseline; gap:10px; }
+  .brandmark .mono{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--amber); letter-spacing:.02em; }
+  .brandmark .name{ font-family:'Fraunces',serif; font-weight:600; font-size:17px; }
+  nav.primary{ display:flex; align-items:center; gap:26px; }
+  nav.primary a{
+    position:relative;
+    text-decoration:none; font-size:14px; color:var(--text-dim);
+    padding-bottom:4px; transition:color .25s ease;
+  }
+  nav.primary a::after{
+    content:''; position:absolute; left:0; right:100%; bottom:0; height:1px;
+    background:var(--amber); transition:right .3s cubic-bezier(.16,.8,.28,1);
+  }
+  nav.primary a:hover{ color:var(--text); }
+  nav.primary a:hover::after{ right:0; }
+  nav.primary a.active{ color:var(--text); }
+  nav.primary a.active::after{ right:0; background:var(--amber-soft); }
+  .theme-toggle{
+    width:34px; height:34px; border-radius:50%;
+    border:1px solid var(--line);
+    background:transparent; color:var(--text);
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+    font-size:15px; flex-shrink:0;
+    transition:border-color .25s ease, transform .4s cubic-bezier(.16,.8,.28,1);
+  }
+  .theme-toggle:hover{ border-color:var(--amber); transform:rotate(180deg); }
+  .nav-toggle{ display:none; background:none; border:1px solid var(--line); color:var(--text); width:38px; height:38px; border-radius:2px; cursor:pointer; }
+
+  /* ---------- Hero ---------- */
+  .hero{ position:relative; overflow:hidden; border-bottom:1px solid var(--line); }
+  .hero canvas{ position:absolute; inset:0; width:100%; height:100%; opacity:.55; pointer-events:none; }
+  [data-theme="light"] .hero canvas{ opacity:.35; }
+  .hero-inner{
+    position:relative; z-index:2; max-width:var(--maxw); margin:0 auto;
+    padding:96px 28px 84px;
+  }
+  .eyebrow-line{
+    display:flex; align-items:center; gap:12px; margin-bottom:22px;
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--amber-soft);
+  }
+  .eyebrow-line .rule{ height:1px; width:36px; background:var(--amber-soft); }
+  .hero h1{ font-size:clamp(2.4rem, 5.4vw, 4.1rem); line-height:1.05; max-width:11ch; }
+  .hero h1 em{ font-style:italic; color:var(--amber); }
+  .hero-role{
+    margin-top:20px; font-size:1.15rem; color:var(--text-dim); max-width:52ch;
+  }
+  .hero-meta{
+    margin-top:34px; display:flex; flex-wrap:wrap; gap:28px;
+    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--text-dim);
+  }
+  .hero-meta a{ text-decoration:none; }
+  .hero-meta a:hover{ color:var(--amber); }
+  .hero-meta span{ color:var(--text); }
+  .hero-cta{ margin-top:42px; display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:.01em;
+    padding:13px 22px; border-radius:2px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px; cursor:pointer; border:1px solid transparent;
+    transition:background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn:active{ transform:translateY(0); }
+  .btn-solid{ background:var(--amber); color:#14171c; }
+  .btn-solid:hover{ background:var(--amber-soft); }
+  .btn-outline{ border-color:var(--line); color:var(--text); }
+  .btn-outline:hover{ border-color:var(--amber); color:var(--amber); }
+
+  /* ---------- Section shell ---------- */
+  section{ padding:76px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  .sec-head{
+    display:grid; grid-template-columns: 200px 1fr; gap:24px; margin-bottom:44px;
+    align-items:baseline;
+  }
+  .sec-tag{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--amber-soft); }
+  .sec-head h2{ font-size:clamp(1.6rem,3vw,2.2rem); }
+  @media (max-width:720px){ .sec-head{ grid-template-columns:1fr; gap:8px; } }
+
+  /* ---------- Summary ---------- */
+  .summary-grid{ display:grid; grid-template-columns:200px 1fr; gap:24px; }
+  .summary-grid p{ max-width:66ch; color:var(--text); font-size:1.02rem; }
+  .summary-grid .lede{ color:var(--text-dim); }
+  @media (max-width:720px){ .summary-grid{ grid-template-columns:1fr; } }
+
+  .stat-row{
+    margin-top:40px; display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  .stat{ background:var(--ink); padding:26px 22px; transition:background .3s ease; }
+  .stat:hover{ background:var(--ink-2); }
+  .stat .num{ font-family:'Fraunces',serif; font-size:2.4rem; color:var(--amber); line-height:1; font-variant-numeric:tabular-nums; }
+  .stat .label{ margin-top:8px; font-size:13px; color:var(--text-dim); max-width:22ch; }
+  @media (max-width:720px){ .stat-row{ grid-template-columns:1fr; } }
+
+  /* ---------- Experience timeline ---------- */
+  .job{
+    display:grid; grid-template-columns:200px 1fr; gap:24px;
+    padding:36px 0 36px 20px; border-top:1px solid var(--line);
+    border-left:2px solid transparent; margin-left:-20px;
+    transition:border-left-color .3s ease, background .3s ease;
+  }
+  .job:first-of-type{ border-top:none; }
+  .job:hover{ border-left-color:var(--amber); background:color-mix(in srgb, var(--ink-2) 60%, transparent); }
+  .job-meta{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--text-dim); }
+  .job-meta .dates{ display:block; margin-top:6px; color:var(--amber-soft); }
+  .job-title{ font-size:1.28rem; margin-bottom:4px; }
+  .job-org{ color:var(--teal); font-size:.98rem; margin-bottom:16px; display:block; }
+  .job ul{ margin:0; padding-left:18px; color:var(--text); }
+  .job li{ margin-bottom:10px; padding-left:2px; }
+  .job li::marker{ color:var(--amber-soft); }
+  @media (max-width:720px){ .job{ grid-template-columns:1fr; } }
+
+  /* ---------- Skills ---------- */
+  .skill-group{ margin-bottom:30px; }
+  .skill-group:last-child{ margin-bottom:0; }
+  .skill-group h3{
+    font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:12.5px;
+    color:var(--text-dim); margin-bottom:14px; text-transform:none;
+  }
+  .chips{ display:flex; flex-wrap:wrap; gap:9px; }
+  .chip{
+    font-size:13.5px; padding:7px 13px; border:1px solid var(--line-light);
+    border-radius:2px; color:var(--text); background:transparent;
+    transition:border-color .2s ease, color .2s ease, transform .2s ease, background .2s ease;
+  }
+  .chip:hover{ border-color:var(--amber); color:var(--amber); transform:translateY(-2px); background:color-mix(in srgb, var(--amber) 8%, transparent); }
+
+  /* ---------- Projects ---------- */
+  .projects{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+  .project{ background:var(--ink); padding:32px; transition:background .3s ease, transform .3s ease; }
+  .project:hover{ background:var(--ink-2); transform:translateY(-3px); }
+  .project .ptag{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--amber-soft); display:block; margin-bottom:14px; }
+  .project h3{ font-size:1.2rem; margin-bottom:14px; font-family:'Fraunces',serif; }
+  .project p{ color:var(--text-dim); font-size:.96rem; margin:0 0 10px; }
+  .project p:last-child{ margin-bottom:0; }
+  @media (max-width:720px){ .projects{ grid-template-columns:1fr; } }
+
+  /* ---------- Education / Certs ---------- */
+  .ed-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+  .ed-grid h3{ font-size:1.05rem; margin-bottom:18px; font-family:'IBM Plex Mono',monospace; font-weight:500; color:var(--text-dim); }
+  .ed-item{ margin-bottom:18px; }
+  .ed-item .deg{ font-size:1.08rem; font-family:'Fraunces',serif; }
+  .ed-item .inst{ color:var(--text-dim); font-size:.92rem; margin-top:4px; }
+  .cert-list{ list-style:none; margin:0; padding:0; }
+  .cert-list li{
+    padding:12px 0 12px 14px; border-top:1px solid var(--line); font-size:.96rem;
+    display:flex; justify-content:space-between; gap:12px;
+    border-left:2px solid transparent; margin-left:-14px;
+    transition:border-left-color .25s ease, padding-left .25s ease;
+  }
+  .cert-list li:first-child{ border-top:none; }
+  .cert-list li:hover{ border-left-color:var(--amber); }
+  .cert-list .issuer{ color:var(--text-dim); font-family:'IBM Plex Mono',monospace; font-size:12px; white-space:nowrap; }
+  @media (max-width:720px){ .ed-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Contact ---------- */
+  .contact-inner{ display:grid; grid-template-columns:200px 1fr; gap:24px; }
+  .contact-inner h2{ font-size:clamp(1.8rem,4vw,2.6rem); max-width:14ch; }
+  .contact-links{ margin-top:28px; display:flex; flex-direction:column; gap:14px; }
+  .contact-links a{
+    text-decoration:none; font-family:'IBM Plex Mono',monospace; font-size:14px;
+    display:flex; align-items:center; gap:10px; color:var(--text);
+    padding-bottom:8px; border-bottom:1px solid var(--line); max-width:420px;
+    transition:color .25s ease, border-color .25s ease, padding-left .25s ease;
+  }
+  .contact-links a:hover{ color:var(--amber); border-color:var(--amber); padding-left:6px; }
+  @media (max-width:720px){ .contact-inner{ grid-template-columns:1fr; } }
+
+  footer{ padding:28px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12.5px; color:var(--text-dim); font-family:'IBM Plex Mono',monospace; }
+
+  /* ---------- Mobile nav ---------- */
+  @media (max-width:820px){
+    nav.primary{
+      position:fixed; inset:56px 0 0 0; background:var(--ink);
+      flex-direction:column; align-items:flex-start; padding:32px 28px;
+      display:none; gap:22px; border-top:1px solid var(--line); z-index:40;
+    }
+    nav.primary.open{ display:flex; }
+    nav.primary a{ font-size:18px; }
+    .nav-toggle{ display:block; }
+    .topbar{ pointer-events:none; }
+    .topbar-inner, .topbar-inner *{ pointer-events:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brandmark">
+      <span class="mono">SC-01</span>
+      <span class="name">Harshavardhan K</span>
+    </div>
+    <nav class="primary" id="primaryNav">
+      <a href="#summary">Summary</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">◐</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </div>
+</div>
+
+<section class="hero" style="border-bottom:1px solid var(--line); padding:0;">
+  <canvas id="routeCanvas"></canvas>
+  <div class="hero-inner">
+    <div class="eyebrow-line hero-anim d1"><span class="rule"></span>SUPPLY CHAIN ANALYST — PLANNING · PROCUREMENT · LOGISTICS</div>
+    <h1 class="hero-anim d2">Turning supply signals into <em>reliable material flow</em></h1>
+    <p class="hero-role hero-anim d3">Four years planning, procuring, and analyzing across manufacturing and e-commerce networks — building the reporting and inventory logic that keeps product moving and stockouts rare.</p>
+    <div class="hero-meta hero-anim d4">
+      <a href="mailto:hkoppurapu0505@gmail.com">hkoppurapu0505@gmail.com</a>
+      <a href="tel:+15612134656">+1 (561) 213-4656</a>
+      <span>Florida, USA</span>
+    </div>
+    <div class="hero-cta hero-anim d5">
+      <a class="btn btn-solid" href="#experience">View experience</a>
+      <a class="btn btn-outline" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="summary">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">01 / SUMMARY</div>
+      <h2>Built for the gap between demand and the dock</h2>
+    </div>
+    <div class="summary-grid">
+      <div></div>
+      <p class="lede">Supply Chain Analyst with 4+ years supporting planning, procurement, inventory, and logistics across complex, cross-functional environments — translating supply and demand requirements into plans that hold up under pressure. Comfortable moving between SQL, Power BI, and Excel to explain <em>why</em> a KPI moved, and comfortable in the room with procurement, operations, finance, and suppliers to decide what to do about it.</p>
+    </div>
+    <div class="stat-row">
+      <div class="stat">
+        <div class="num">35%</div>
+        <div class="label">Manual reporting effort cut via Excel automation and VBA macros at eBay</div>
+      </div>
+      <div class="stat">
+        <div class="num">20%</div>
+        <div class="label">Reduction in inventory discrepancies from strengthened ABC-based inventory control at P&amp;G</div>
+      </div>
+      <div class="stat">
+        <div class="num">4+ yrs</div>
+        <div class="label">Across e-commerce fulfillment and CPG manufacturing supply chains</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">02 / EXPERIENCE</div>
+      <h2>Where the plans got tested</h2>
+    </div>
+
+    <div class="job">
+      <div class="job-meta">Supply Chain Analyst<span class="dates">Jan 2025 — Present</span></div>
+      <div>
+        <div class="job-title">eBay</div>
+        <span class="job-org">USA — E-commerce fulfillment</span>
+        <ul>
+          <li>Analyzed demand patterns and replenishment requirements to catch supply gaps early and keep products available across operational workflows.</li>
+          <li>Repositioned inventory using safety stock and XYZ segmentation, prioritizing high-variability items to cut exposure to both stockouts and excess.</li>
+          <li>Built automated Power BI and SQL reporting that pulls supply-chain data from multiple sources into KPI dashboards for faster decisions.</li>
+          <li>Automated recurring reconciliations with Excel, XLOOKUP, and VBA, cutting manual reporting effort by 35%.</li>
+          <li>Tracked shipment exceptions and SLA commitments through Oracle OTM and TMS to improve delivery adherence.</li>
+          <li>Partnered with suppliers and procurement on recurring delivery issues, using supplier performance analysis to drive corrective action.</li>
+          <li>Coordinated across procurement, operations, and finance to align on supply constraints and business priorities.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-meta">Supply Chain Operations<span class="dates">Jun 2021 — Oct 2023</span></div>
+      <div>
+        <div class="job-title">Procter &amp; Gamble</div>
+        <span class="job-org">India — CPG manufacturing</span>
+        <ul>
+          <li>Applied MRP and production planning to align component requirements with manufacturing schedules and reduce planning disruptions.</li>
+          <li>Strengthened inventory control through ABC analysis and replenishment planning, contributing to a 20% reduction in inventory discrepancies.</li>
+          <li>Analyzed warehouse and distribution activity to identify bottlenecks and improve material flow.</li>
+          <li>Supported sourcing decisions through strategic sourcing, RFQ/RFP, and spend analysis across supplier proposals.</li>
+          <li>Evaluated supplier and purchasing performance to flag delivery, pricing, and continuity risk ahead of impact.</li>
+          <li>Converted large transactional datasets into management-ready reports using Power Query and PivotTables.</li>
+          <li>Standardized recurring workflow issues using Lean Six Sigma and root cause analysis.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">03 / CAPABILITIES</div>
+      <h2>The toolkit behind the plan</h2>
+    </div>
+
+    <div class="skill-group">
+      <h3>Supply chain</h3>
+      <div class="chips">
+        <span class="chip">Supply Chain Planning</span><span class="chip">Demand Planning</span><span class="chip">Supply Planning</span>
+        <span class="chip">Inventory Optimization</span><span class="chip">Procurement</span><span class="chip">Strategic Sourcing</span>
+        <span class="chip">Logistics Management</span><span class="chip">S&amp;OP</span><span class="chip">MRP</span><span class="chip">Production Planning</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Inventory &amp; operations</h3>
+      <div class="chips">
+        <span class="chip">Inventory Control</span><span class="chip">Safety Stock</span><span class="chip">Replenishment Planning</span>
+        <span class="chip">Material Availability</span><span class="chip">Supplier Performance</span><span class="chip">Warehouse Operations</span>
+        <span class="chip">Transportation Management</span><span class="chip">Lead Time Management</span><span class="chip">Supply Risk Management</span>
+        <span class="chip">ABC Analysis</span><span class="chip">XYZ Segmentation</span><span class="chip">SLA Management</span>
+        <span class="chip">Lean Six Sigma</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Analytics &amp; technology</h3>
+      <div class="chips">
+        <span class="chip">Advanced Excel</span><span class="chip">Power BI</span><span class="chip">SQL</span>
+        <span class="chip">SAP S/4HANA</span><span class="chip">ERP Systems</span><span class="chip">Tableau</span>
+        <span class="chip">ETL</span><span class="chip">Power Query</span><span class="chip">PivotTables</span>
+        <span class="chip">XLOOKUP</span><span class="chip">VBA Macros</span><span class="chip">KPI Dashboards</span><span class="chip">Forecasting</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Procurement</h3>
+      <div class="chips">
+        <span class="chip">Supplier Relationship Mgmt</span><span class="chip">Vendor Management</span><span class="chip">Spend Analysis</span>
+        <span class="chip">RFQ / RFP</span><span class="chip">Purchase Orders</span><span class="chip">Contract Support</span>
+        <span class="chip">Cost Analysis</span><span class="chip">Supplier Risk</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Systems &amp; collaboration</h3>
+      <div class="chips">
+        <span class="chip">Oracle OTM</span><span class="chip">WMS</span><span class="chip">TMS</span>
+        <span class="chip">Stakeholder Management</span><span class="chip">Root Cause Analysis</span>
+        <span class="chip">Process Optimization</span><span class="chip">Project Management</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">04 / PROJECTS</div>
+      <h2>Analysis outside the day job</h2>
+    </div>
+    <div class="projects">
+      <div class="project">
+        <span class="ptag">WMS · SQL · POWER BI</span>
+        <h3>Warehouse &amp; Distribution Center Optimization</h3>
+        <p>Analyzed warehouse throughput, order-cycle patterns, and distribution bottlenecks to identify constraints in material flow and fulfillment.</p>
+        <p>Evaluated slotting, picking, and replenishment using ABC-XYZ segmentation and process mapping, supporting layout changes that improved visibility and cut fulfillment delays.</p>
+      </div>
+      <div class="project">
+        <span class="ptag">TABLEAU · ETL · SLA ANALYTICS</span>
+        <h3>OTIF &amp; Service-Level Improvement Analytics</h3>
+        <p>Built an OTIF performance framework from SLA metrics, delivery adherence, and exception analysis to surface recurring service failures.</p>
+        <p>Developed an interactive Tableau dashboard consolidating order and shipment data, cutting time to spot and resolve exceptions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">05 / EDUCATION &amp; CERTIFICATIONS</div>
+      <h2>Credentials on record</h2>
+    </div>
+    <div class="ed-grid">
+      <div>
+        <h3>Education</h3>
+        <div class="ed-item">
+          <div class="deg">Master's in Data Science</div>
+          <div class="inst">Florida Atlantic University, USA — Jan 2024 – Dec 2025</div>
+        </div>
+      </div>
+      <div>
+        <h3>Certifications</h3>
+        <ul class="cert-list">
+          <li><span>Certified Supply Chain Professional (CSCP)</span><span class="issuer">ASCM</span></li>
+          <li><span>Certified in Planning and Inventory Management (CPIM)</span><span class="issuer">ASCM</span></li>
+          <li><span>Lean Six Sigma Green Belt</span><span class="issuer">—</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div></div>
+      <div>
+        <h2>Let's talk about your supply chain</h2>
+        <div class="contact-links">
+          <a href="mailto:hkoppurapu0505@gmail.com">→ hkoppurapu0505@gmail.com</a>
+          <a href="tel:+15612134656">→ +1 (561) 213-4656</a>
+          <a href="https://www.linkedin.com/in/harshavardhanreddykoppurapu" id="linkedinLink" target="_blank" rel="noopener">→ LinkedIn profile</a>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--text-dim);">→ Based in Florida, USA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Harshavardhan K</span>
+    <span>Supply Chain Planning · Inventory &amp; Procurement · Logistics &amp; Operations</span>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle with persistence
+  const themeToggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  function applyTheme(t){
+    if(t === 'light'){ root.setAttribute('data-theme','light'); themeToggle.textContent = '◑'; }
+    else { root.removeAttribute('data-theme'); themeToggle.textContent = '◐'; }
+  }
+  let saved = null;
+  try{ saved = localStorage.getItem('sc-theme'); }catch(e){}
+  if(!saved){ saved = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+  applyTheme(saved);
+  themeToggle.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    applyTheme(cur);
+    try{ localStorage.setItem('sc-theme', cur); }catch(e){}
+  });
+
+  // Mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const primaryNav = document.getElementById('primaryNav');
+  navToggle.addEventListener('click', () => {
+    primaryNav.classList.toggle('open');
+    navToggle.textContent = primaryNav.classList.contains('open') ? '✕' : '☰';
+  });
+  primaryNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    primaryNav.classList.remove('open');
+    navToggle.textContent = '☰';
+  }));
+
+  // Subtle hero parallax on scroll
+  const heroInner = document.querySelector('.hero-inner');
+  function parallaxHero(){
+    const y = window.scrollY;
+    if(y < window.innerHeight){
+      heroInner.style.transform = 'translateY(' + (y * 0.18) + 'px)';
+      heroInner.style.opacity = String(Math.max(1 - y / 520, 0));
+    }
+  }
+  document.addEventListener('scroll', parallaxHero, { passive:true });
+
+  // Scroll progress bar
+  const progressBar = document.getElementById('progressBar');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = h.scrollTop;
+    const height = h.scrollHeight - h.clientHeight;
+    progressBar.style.width = (height > 0 ? (scrolled / height) * 100 : 0) + '%';
+  }
+  document.addEventListener('scroll', updateProgress, { passive:true });
+  updateProgress();
+
+  // Scrollspy: highlight active nav link
+  const navLinks = Array.from(document.querySelectorAll('nav.primary a'));
+  const navSections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  function updateActiveNav(){
+    let current = navSections[0];
+    const trigger = window.scrollY + window.innerHeight * 0.35;
+    navSections.forEach(sec => { if(sec.offsetTop <= trigger) current = sec; });
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current.id));
+  }
+  document.addEventListener('scroll', updateActiveNav, { passive:true });
+  updateActiveNav();
+
+  // Reveal-on-scroll: tag content blocks, stagger children, observe
+  function tagReveal(selector, { stagger = false } = {}){
+    document.querySelectorAll(selector).forEach(el => {
+      el.classList.add('reveal');
+      if(stagger){
+        Array.from(el.children).forEach((child, i) => {
+          child.style.transitionDelay = (i * 0.06) + 's';
+        });
+      }
+    });
+  }
+  tagReveal('.sec-head');
+  tagReveal('.summary-grid p');
+  tagReveal('.stat-row', { stagger:true });
+  tagReveal('.job');
+  tagReveal('.skill-group');
+  tagReveal('.projects', { stagger:true });
+  tagReveal('.ed-grid > div');
+  tagReveal('.contact-inner h2');
+  tagReveal('.contact-links');
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Animated stat counters
+  function animateCount(el, target, suffix, duration){
+    const start = performance.now();
+    function tick(now){
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if(p < 1) requestAnimationFrame(tick);
+      else el.textContent = target + suffix;
+    }
+    requestAnimationFrame(tick);
+  }
+  const statNums = document.querySelectorAll('.stat .num');
+  const statData = [ { val:35, suf:'%' }, { val:20, suf:'%' }, { val:4, suf:'+ yrs' } ];
+  const statIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        statNums.forEach((el, i) => animateCount(el, statData[i].val, statData[i].suf, 1100));
+        statIO.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  if(statNums.length) statIO.observe(document.querySelector('.stat-row'));
+
+  // Route network hero animation
+  const canvas = document.getElementById('routeCanvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes, routes, shipments;
+
+  function resize(){
+    const hero = canvas.parentElement;
+    W = canvas.width = hero.offsetWidth * devicePixelRatio;
+    H = canvas.height = hero.offsetHeight * devicePixelRatio;
+    canvas.style.width = hero.offsetWidth + 'px';
+    canvas.style.height = hero.offsetHeight + 'px';
+    ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+    setup();
+  }
+
+  function setup(){
+    const w = canvas.offsetWidth, h = canvas.offsetHeight;
+    const cols = 5, rows = 3;
+    nodes = [];
+    for(let i=0;i<cols;i++){
+      for(let j=0;j<rows;j++){
+        if(Math.random() > 0.42){
+          nodes.push({
+            x: (w/(cols-1))*i + (Math.random()-0.5)*40,
+            y: (h/(rows-1))*j + (Math.random()-0.5)*40
+          });
+        }
+      }
+    }
+    routes = [];
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx*dx+dy*dy);
+        if(dist < w*0.34 && Math.random() > 0.62){
+          routes.push({ a: nodes[i], b: nodes[j] });
+        }
+      }
+    }
+    shipments = routes.map(r => ({ route: r, t: Math.random(), speed: 0.0018 + Math.random()*0.0022 }));
+  }
+
+  function draw(){
+    const w = canvas.offsetWidth, h = canvas.offsetHeight;
+    ctx.clearRect(0,0,w,h);
+
+    const lineColor = getComputedStyle(root).getPropertyValue('--line-light').trim();
+    const amber = getComputedStyle(root).getPropertyValue('--amber').trim();
+    const teal = getComputedStyle(root).getPropertyValue('--teal').trim();
+
+    ctx.strokeStyle = lineColor;
+    ctx.globalAlpha = 0.35;
+    ctx.lineWidth = 1;
+    routes.forEach(r => {
+      ctx.beginPath();
+      ctx.moveTo(r.a.x, r.a.y);
+      ctx.lineTo(r.b.x, r.b.y);
+      ctx.stroke();
+    });
+
+    ctx.globalAlpha = 1;
+    nodes.forEach(n => {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, 3, 0, Math.PI*2);
+      ctx.fillStyle = lineColor;
+      ctx.fill();
+    });
+
+    shipments.forEach((s, idx) => {
+      s.t += s.speed;
+      if(s.t > 1) s.t = 0;
+      const x = s.route.a.x + (s.route.b.x - s.route.a.x) * s.t;
+      const y = s.route.a.y + (s.route.b.y - s.route.a.y) * s.t;
+      ctx.beginPath();
+      ctx.arc(x, y, 2.6, 0, Math.PI*2);
+      ctx.fillStyle = idx % 3 === 0 ? teal : amber;
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  requestAnimationFrame(draw);
+</script>
+
+</body>
+</html>
